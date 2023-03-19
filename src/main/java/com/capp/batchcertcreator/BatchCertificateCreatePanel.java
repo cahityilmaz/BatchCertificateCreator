@@ -75,6 +75,7 @@ public class BatchCertificateCreatePanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        extensionBtnGrp = new javax.swing.ButtonGroup();
         javax.swing.JPanel userInfoPanel = new javax.swing.JPanel();
         javax.swing.JLabel cnPrefixLbl = new javax.swing.JLabel();
         cnPrefixTf = new javax.swing.JTextField();
@@ -105,11 +106,19 @@ public class BatchCertificateCreatePanel extends javax.swing.JPanel {
         caCertPasswordTf = new javax.swing.JTextField();
         validFromDatePicker = new org.jdesktop.swingx.JXDatePicker();
         validUntilDatePicker = new org.jdesktop.swingx.JXDatePicker();
+        certPasswordLbl = new javax.swing.JLabel();
+        certPasswordTf = new javax.swing.JTextField();
+        certExtensionLbl = new javax.swing.JLabel();
+        certExtensionPfxRd = new javax.swing.JRadioButton();
+        certExtensionP12Rd = new javax.swing.JRadioButton();
+        certSaveFolderLbl = new javax.swing.JLabel();
+        certSaveFolder = new javax.swing.JTextField();
+        certSaveFolderSelectBtn = new javax.swing.JButton();
         createBtn = new javax.swing.JButton();
 
         setName("Form"); // NOI18N
 
-        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("com/mucahit/certcreator/Bundle"); // NOI18N
+        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("com/capp/batchcertcreator/Bundle"); // NOI18N
         userInfoPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, bundle.getString("BatchCertificateCreatePanel.userInfoPanel.border.title"), javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION)); // NOI18N
         userInfoPanel.setName("userInfoPanel"); // NOI18N
 
@@ -169,8 +178,8 @@ public class BatchCertificateCreatePanel extends javax.swing.JPanel {
                         .addComponent(countryLbl)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(userInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cnPrefixTf, javax.swing.GroupLayout.DEFAULT_SIZE, 568, Short.MAX_VALUE)
-                    .addComponent(domainTf, javax.swing.GroupLayout.DEFAULT_SIZE, 568, Short.MAX_VALUE)
+                    .addComponent(cnPrefixTf)
+                    .addComponent(domainTf)
                     .addComponent(startIndexTf)
                     .addComponent(endIndexTf)
                     .addComponent(organizationTf)
@@ -248,7 +257,7 @@ public class BatchCertificateCreatePanel extends javax.swing.JPanel {
         sigAlgLbl.setText(bundle.getString("BatchCertificateCreatePanel.sigAlgLbl.text")); // NOI18N
         sigAlgLbl.setName("sigAlgLbl"); // NOI18N
 
-        sigAlgCmb.setModel(SignatureAlgorithm.createComboboxModel());
+        sigAlgCmb.setModel(com.capp.batchcertcreator.SignatureAlgorithm.createComboboxModel());
         sigAlgCmb.setName("sigAlgCmb"); // NOI18N
 
         validDateStartLbl.setText(bundle.getString("BatchCertificateCreatePanel.validDateStartLbl.text")); // NOI18N
@@ -266,6 +275,38 @@ public class BatchCertificateCreatePanel extends javax.swing.JPanel {
 
         validUntilDatePicker.setName("validUntilDatePicker"); // NOI18N
 
+        certPasswordLbl.setText(bundle.getString("BatchCertificateCreatePanel.certPasswordLbl.text")); // NOI18N
+        certPasswordLbl.setName("certPasswordLbl"); // NOI18N
+
+        certPasswordTf.setName("certPasswordTf"); // NOI18N
+
+        certExtensionLbl.setText(bundle.getString("BatchCertificateCreatePanel.certExtensionLbl.text")); // NOI18N
+        certExtensionLbl.setName("certExtensionLbl"); // NOI18N
+
+        extensionBtnGrp.add(certExtensionPfxRd);
+        certExtensionPfxRd.setSelected(true);
+        certExtensionPfxRd.setText("pfx"); // NOI18N
+        certExtensionPfxRd.setActionCommand(".pfx"); // NOI18N
+        certExtensionPfxRd.setName("certExtensionPfxRd"); // NOI18N
+
+        extensionBtnGrp.add(certExtensionP12Rd);
+        certExtensionP12Rd.setText("p12"); // NOI18N
+        certExtensionP12Rd.setActionCommand(".p12"); // NOI18N
+        certExtensionP12Rd.setName("certExtensionP12Rd"); // NOI18N
+
+        certSaveFolderLbl.setText(bundle.getString("BatchCertificateCreatePanel.certSaveFolderLbl.text")); // NOI18N
+        certSaveFolderLbl.setName("certSaveFolderLbl"); // NOI18N
+
+        certSaveFolder.setName("certSaveFolder"); // NOI18N
+
+        certSaveFolderSelectBtn.setText(bundle.getString("BatchCertificateCreatePanel.certSaveFolderSelectBtn.text")); // NOI18N
+        certSaveFolderSelectBtn.setName("certSaveFolderSelectBtn"); // NOI18N
+        certSaveFolderSelectBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                certSaveFolderSelectBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout certInfoPanelLayout = new javax.swing.GroupLayout(certInfoPanel);
         certInfoPanel.setLayout(certInfoPanelLayout);
         certInfoPanelLayout.setHorizontalGroup(
@@ -273,31 +314,37 @@ public class BatchCertificateCreatePanel extends javax.swing.JPanel {
             .addGroup(certInfoPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(certInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(keyStorePathLbl)
+                    .addComponent(certPasswordLbl)
+                    .addComponent(certExtensionLbl)
                     .addComponent(caFilePathLbl)
                     .addComponent(keySizeLbl)
                     .addComponent(sigAlgLbl)
                     .addComponent(validDateStartLbl)
                     .addComponent(validDateEndLbl)
-                    .addComponent(caCertPasswordLbl))
+                    .addComponent(caCertPasswordLbl)
+                    .addComponent(keyStorePathLbl)
+                    .addComponent(certSaveFolderLbl))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(certInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(certInfoPanelLayout.createSequentialGroup()
-                        .addGroup(certInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(caFilePathTf, javax.swing.GroupLayout.DEFAULT_SIZE, 545, Short.MAX_VALUE)
-                            .addComponent(keyStorePathTf))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(certInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(keyStoreSelectBtn, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(caFilePathSelectBtn, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addComponent(validFromDatePicker, javax.swing.GroupLayout.DEFAULT_SIZE, 424, Short.MAX_VALUE)
+                    .addComponent(validUntilDatePicker, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(caFilePathTf)
                     .addComponent(caCertPasswordTf)
+                    .addComponent(keyStorePathTf)
+                    .addComponent(sigAlgCmb, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(certInfoPanelLayout.createSequentialGroup()
-                        .addGroup(certInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(sigAlgCmb, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(keySizeSpn, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
-                            .addComponent(validFromDatePicker, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(validUntilDatePicker, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(certExtensionPfxRd)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(certExtensionP12Rd)
+                        .addGap(0, 0, 0))
+                    .addComponent(keySizeSpn)
+                    .addComponent(certPasswordTf)
+                    .addComponent(certSaveFolder))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(certInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(caFilePathSelectBtn)
+                    .addComponent(keyStoreSelectBtn)
+                    .addComponent(certSaveFolderSelectBtn))
                 .addContainerGap())
         );
         certInfoPanelLayout.setVerticalGroup(
@@ -319,12 +366,7 @@ public class BatchCertificateCreatePanel extends javax.swing.JPanel {
                 .addGroup(certInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(validDateEndLbl)
                     .addComponent(validUntilDatePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(certInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(keyStorePathLbl)
-                    .addComponent(keyStorePathTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(keyStoreSelectBtn))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(certInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(caFilePathLbl)
                     .addComponent(caFilePathTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -333,7 +375,26 @@ public class BatchCertificateCreatePanel extends javax.swing.JPanel {
                 .addGroup(certInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(caCertPasswordLbl)
                     .addComponent(caCertPasswordTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addGap(18, 18, 18)
+                .addGroup(certInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(certPasswordLbl)
+                    .addComponent(certPasswordTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(certInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(certExtensionLbl)
+                    .addComponent(certExtensionPfxRd)
+                    .addComponent(certExtensionP12Rd))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(certInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(keyStorePathLbl)
+                    .addComponent(keyStorePathTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(keyStoreSelectBtn))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(certInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(certSaveFolderLbl)
+                    .addComponent(certSaveFolder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(certSaveFolderSelectBtn))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         createBtn.setText(bundle.getString("BatchCertificateCreatePanel.createBtn.text")); // NOI18N
@@ -365,7 +426,7 @@ public class BatchCertificateCreatePanel extends javax.swing.JPanel {
                 .addComponent(userInfoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(certInfoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(createBtn)
                 .addContainerGap())
         );
@@ -442,10 +503,6 @@ public class BatchCertificateCreatePanel extends javax.swing.JPanel {
 
         JcaX509ExtensionUtils extensionUtils = new JcaX509ExtensionUtils();
 
-        if (issuerPrivateKey == null) {
-            issuerPrivateKey = keyPair.getPrivate();
-        }
-
         // The cert builder to build up our certificate information
         var builder = new X509v3CertificateBuilder(
                 info.getIssuer(),
@@ -453,7 +510,7 @@ public class BatchCertificateCreatePanel extends javax.swing.JPanel {
                 info.getValidFrom(),
                 info.getValidUntil(),
                 info.getSubject(),
-                SubjectPublicKeyInfo.getInstance(issuerCertificate.getPublicKey().getEncoded()));
+                SubjectPublicKeyInfo.getInstance(keyPair.getPublic().getEncoded()));
 
         // subject alternative names
         if (info.getDomain() != null && !info.getDomain().isBlank()) {
@@ -486,43 +543,81 @@ public class BatchCertificateCreatePanel extends javax.swing.JPanel {
         return new GeneratedCert(keyPair.getPrivate(), cert);
     }
 
+    private void exportUserCertificate(CertInfo certInfo, GeneratedCert generatedCert) {
+        try {
+            var keyStore = createEmptyKeyStore();
+            char[] certsPassword = certPasswordTf.getText().toCharArray();
+            keyStore.setKeyEntry(certInfo.getCn(), generatedCert.getPrivateKey(), certsPassword,
+                        new X509Certificate[]{generatedCert.getCertificate(), issuerCertificate});
+            var certFolder = certSaveFolder.getText();
+            var file = certFolder + File.separator + certInfo.getCn() + extensionBtnGrp.getSelection().getActionCommand();
+            try (var fos = new FileOutputStream(file)) {
+                keyStore.store(fos, certsPassword);
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(BatchCertificateCreatePanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
     private void createBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createBtnActionPerformed
         try {
             loadIssuerCertificate();
+            char[] certsPassword = certPasswordTf.getText().toCharArray();
             keyGen = KeyPairGenerator.getInstance("RSA");
             keyGen.initialize(Integer.parseInt(keySizeSpn.getValue().toString()), new SecureRandom());
             ContentSigner signer = new JcaContentSignerBuilder(sigAlgCmb.getItemAt(sigAlgCmb.getSelectedIndex()).getValue())
                     .build(issuerPrivateKey);
             KeyStore keyStore = createEmptyKeyStore();
-            keyStore.setKeyEntry("CAKEY", issuerPrivateKey, EMPTY_PASSWORD, new X509Certificate[]{issuerCertificate});
+            keyStore.setKeyEntry("CAKEY", issuerPrivateKey, certsPassword, new X509Certificate[]{issuerCertificate});
             var certInfos = createCertInfos();
             for (var certInfo : certInfos) {
                 GeneratedCert generatedCert = createCertificate(certInfo, signer);
-                keyStore.setKeyEntry(certInfo.getCn(), generatedCert.getPrivateKey(), EMPTY_PASSWORD,
+                keyStore.setKeyEntry(certInfo.getCn(), generatedCert.getPrivateKey(), certsPassword,
                         new X509Certificate[]{generatedCert.getCertificate(), issuerCertificate});
+                exportUserCertificate(certInfo, generatedCert);
             }
             try (var fos = new FileOutputStream(keyStorePathTf.getText())) {
-                keyStore.store(fos, EMPTY_PASSWORD);
+                keyStore.store(fos, certsPassword);
             }
         } catch (Exception ex) {
             Logger.getLogger(BatchCertificateCreatePanel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_createBtnActionPerformed
 
+    private void certSaveFolderSelectBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_certSaveFolderSelectBtnActionPerformed
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Sertifikaların Kayıt Yerini Seçiniz");
+        fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        fileChooser.setMultiSelectionEnabled(false);
+        int showSaveDialog = fileChooser.showSaveDialog(this);
+        if (showSaveDialog == JFileChooser.APPROVE_OPTION) {
+            certSaveFolder.setText(fileChooser.getSelectedFile().getAbsolutePath());
+        }
+    }//GEN-LAST:event_certSaveFolderSelectBtnActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField caCertPasswordTf;
     private javax.swing.JButton caFilePathSelectBtn;
     private javax.swing.JTextField caFilePathTf;
+    private javax.swing.JLabel certExtensionLbl;
+    private javax.swing.JRadioButton certExtensionP12Rd;
+    private javax.swing.JRadioButton certExtensionPfxRd;
+    private javax.swing.JLabel certPasswordLbl;
+    private javax.swing.JTextField certPasswordTf;
+    private javax.swing.JTextField certSaveFolder;
+    private javax.swing.JLabel certSaveFolderLbl;
+    private javax.swing.JButton certSaveFolderSelectBtn;
     private javax.swing.JTextField cnPrefixTf;
     private javax.swing.JTextField countryTf;
     private javax.swing.JButton createBtn;
     private javax.swing.JTextField domainTf;
     private javax.swing.JTextField endIndexTf;
+    private javax.swing.ButtonGroup extensionBtnGrp;
     private javax.swing.JSpinner keySizeSpn;
     private javax.swing.JTextField keyStorePathTf;
     private javax.swing.JButton keyStoreSelectBtn;
     private javax.swing.JTextField organizationTf;
-    private javax.swing.JComboBox<SignatureAlgorithm> sigAlgCmb;
+    private javax.swing.JComboBox<com.capp.batchcertcreator.SignatureAlgorithm> sigAlgCmb;
     private javax.swing.JTextField startIndexTf;
     private org.jdesktop.swingx.JXDatePicker validFromDatePicker;
     private org.jdesktop.swingx.JXDatePicker validUntilDatePicker;

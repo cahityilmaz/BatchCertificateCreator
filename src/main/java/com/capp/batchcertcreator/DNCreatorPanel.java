@@ -30,8 +30,8 @@ public class DNCreatorPanel extends javax.swing.JPanel {
 
     public String getSubject() {
         var subject = new StringBuilder();
-        for (Component c : getComponents()) {
-            RDNPanel panel = (RDNPanel) c;
+        for (int i = container.getComponentCount() - 1; i >= 0; i--) {
+            RDNPanel panel = (RDNPanel) container.getComponent(i);
             subject.append(panel.getRDNStringRepresentation());
         }
         return subject.substring(0, subject.length() - 1);
@@ -45,11 +45,41 @@ public class DNCreatorPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonsPnl = new javax.swing.JPanel();
+        createBtn = new org.jdesktop.swingx.JXButton();
+        closeBtn = new org.jdesktop.swingx.JXButton();
+
         setName("Form"); // NOI18N
         setLayout(new java.awt.BorderLayout());
+
+        buttonsPnl.setName("buttonsPnl"); // NOI18N
+        buttonsPnl.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
+
+        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("com/capp/batchcertcreator/Bundle"); // NOI18N
+        createBtn.setText(bundle.getString("DNCreatorPanel.createBtn.text")); // NOI18N
+        createBtn.setName("createBtn"); // NOI18N
+        createBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createBtnActionPerformed(evt);
+            }
+        });
+        buttonsPnl.add(createBtn);
+
+        closeBtn.setText(bundle.getString("DNCreatorPanel.closeBtn.text")); // NOI18N
+        closeBtn.setName("closeBtn"); // NOI18N
+        buttonsPnl.add(closeBtn);
+
+        add(buttonsPnl, java.awt.BorderLayout.PAGE_END);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void createBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createBtnActionPerformed
+        System.out.println(getSubject());
+    }//GEN-LAST:event_createBtnActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel buttonsPnl;
+    private org.jdesktop.swingx.JXButton closeBtn;
+    private org.jdesktop.swingx.JXButton createBtn;
     // End of variables declaration//GEN-END:variables
     private class NewRDNPanelAction extends AbstractAction {
 

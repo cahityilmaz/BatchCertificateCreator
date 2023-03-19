@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.ButtonGroup" name="extensionBtnGrp">
+    </Component>
+  </NonVisualComponents>
   <Properties>
     <Property name="name" type="java.lang.String" value="Form" noResource="true"/>
   </Properties>
@@ -40,7 +44,7 @@
               <Component id="userInfoPanel" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="certInfoPanel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="createBtn" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -92,8 +96,8 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="cnPrefixTf" alignment="0" pref="568" max="32767" attributes="0"/>
-                      <Component id="domainTf" alignment="0" pref="568" max="32767" attributes="0"/>
+                      <Component id="cnPrefixTf" alignment="0" max="32767" attributes="0"/>
+                      <Component id="domainTf" alignment="0" max="32767" attributes="0"/>
                       <Component id="startIndexTf" alignment="0" max="32767" attributes="0"/>
                       <Component id="endIndexTf" alignment="0" max="32767" attributes="0"/>
                       <Component id="organizationTf" alignment="0" max="32767" attributes="0"/>
@@ -271,37 +275,40 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="keyStorePathLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="certPasswordLbl" min="-2" max="-2" attributes="0"/>
+                      <Component id="certExtensionLbl" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="caFilePathLbl" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="keySizeLbl" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="sigAlgLbl" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="validDateStartLbl" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="validDateEndLbl" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="caCertPasswordLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="keyStorePathLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="certSaveFolderLbl" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="caFilePathTf" pref="545" max="32767" attributes="0"/>
-                              <Component id="keyStorePathTf" max="32767" attributes="0"/>
-                          </Group>
+                      <Component id="validFromDatePicker" alignment="0" pref="424" max="32767" attributes="0"/>
+                      <Component id="validUntilDatePicker" alignment="0" max="32767" attributes="0"/>
+                      <Component id="caFilePathTf" alignment="0" max="32767" attributes="0"/>
+                      <Component id="caCertPasswordTf" alignment="0" max="32767" attributes="0"/>
+                      <Component id="keyStorePathTf" alignment="0" max="32767" attributes="0"/>
+                      <Component id="sigAlgCmb" alignment="0" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="certExtensionPfxRd" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="keyStoreSelectBtn" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="caFilePathSelectBtn" alignment="1" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="certExtensionP12Rd" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="caCertPasswordTf" max="32767" attributes="0"/>
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="sigAlgCmb" alignment="0" max="32767" attributes="0"/>
-                              <Component id="keySizeSpn" alignment="0" pref="156" max="32767" attributes="0"/>
-                              <Component id="validFromDatePicker" alignment="0" max="32767" attributes="0"/>
-                              <Component id="validUntilDatePicker" alignment="0" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="keySizeSpn" alignment="0" max="32767" attributes="0"/>
+                      <Component id="certPasswordTf" alignment="0" max="32767" attributes="0"/>
+                      <Component id="certSaveFolder" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="caFilePathSelectBtn" min="-2" max="-2" attributes="0"/>
+                      <Component id="keyStoreSelectBtn" min="-2" max="-2" attributes="0"/>
+                      <Component id="certSaveFolderSelectBtn" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -330,13 +337,7 @@
                       <Component id="validDateEndLbl" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="validUntilDatePicker" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="keyStorePathLbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="keyStorePathTf" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="keyStoreSelectBtn" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="caFilePathLbl" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="caFilePathTf" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -347,7 +348,30 @@
                       <Component id="caCertPasswordLbl" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="caCertPasswordTf" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="certPasswordLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="certPasswordTf" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="certExtensionLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="certExtensionPfxRd" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="certExtensionP12Rd" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="keyStorePathLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="keyStorePathTf" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="keyStoreSelectBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="certSaveFolderLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="certSaveFolder" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="certSaveFolderSelectBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -507,6 +531,72 @@
           <Properties>
             <Property name="name" type="java.lang.String" value="validUntilDatePicker" noResource="true"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="certPasswordLbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="com/capp/batchcertcreator/Bundle.properties" key="BatchCertificateCreatePanel.certPasswordLbl.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+            </Property>
+            <Property name="name" type="java.lang.String" value="certPasswordLbl" noResource="true"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="certPasswordTf">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="certPasswordTf" noResource="true"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="certExtensionLbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="com/capp/batchcertcreator/Bundle.properties" key="BatchCertificateCreatePanel.certExtensionLbl.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+            </Property>
+            <Property name="name" type="java.lang.String" value="certExtensionLbl" noResource="true"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JRadioButton" name="certExtensionPfxRd">
+          <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="extensionBtnGrp"/>
+            </Property>
+            <Property name="selected" type="boolean" value="true"/>
+            <Property name="text" type="java.lang.String" value="pfx" noResource="true"/>
+            <Property name="actionCommand" type="java.lang.String" value=".pfx" noResource="true"/>
+            <Property name="name" type="java.lang.String" value="certExtensionPfxRd" noResource="true"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JRadioButton" name="certExtensionP12Rd">
+          <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="extensionBtnGrp"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="p12" noResource="true"/>
+            <Property name="actionCommand" type="java.lang.String" value=".p12" noResource="true"/>
+            <Property name="name" type="java.lang.String" value="certExtensionP12Rd" noResource="true"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="certSaveFolderLbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="com/capp/batchcertcreator/Bundle.properties" key="BatchCertificateCreatePanel.certSaveFolderLbl.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+            </Property>
+            <Property name="name" type="java.lang.String" value="certSaveFolderLbl" noResource="true"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="certSaveFolder">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="certSaveFolder" noResource="true"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="certSaveFolderSelectBtn">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="com/capp/batchcertcreator/Bundle.properties" key="BatchCertificateCreatePanel.certSaveFolderSelectBtn.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+            </Property>
+            <Property name="name" type="java.lang.String" value="certSaveFolderSelectBtn" noResource="true"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="certSaveFolderSelectBtnActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
